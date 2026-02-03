@@ -1,0 +1,24 @@
+services:
+  windows:
+    image: dockurr/windows
+    container_name: windows
+    environment:
+      VERSION: "11"
+      RAM_SIZE: "12G"
+      CPU_CORES: "4"
+      DISK_SIZE: "128G"
+      USERNAME: "sherow"
+      PASSWORD: "*Sherow@1982#"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 3389:3389
+      - 3389:3389/udp
+      - 8006:8006
+      - 5900:5900
+    volumes:
+      - /workspaces/github/windows:/storage
+      - /workspaces/github/windows/storage2:/storage2
+    restart: unless-stopped
