@@ -18,3 +18,8 @@ swapon /tmp/swap
 dockerd --seccomp-profile unconfined --experimental &> /dev/null &
 
 tailscaled -statedir /workspaces/$REPOSITORY/.devcontainer/tailscale &> /dev/null &
+
+# Auto-start Windows on Codespace launch
+sleep 10
+cd /workspaces/$REPOSITORY
+start &
